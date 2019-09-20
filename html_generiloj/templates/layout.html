@@ -13,7 +13,9 @@
 
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">   
+    <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"-->
+    <link rel="stylesheet" href="{{vojprefikso}}../assets/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="{{vojprefikso}}../assets/node_modules/mdbootstrap/css/mdb.min.css" />
     <!--
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     -->
@@ -40,64 +42,52 @@
 
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg navbar-inverse navbar-light bg-light">
+        <a class="navbar-brand" href="{{vojprefikso}}"><img id="logo" src="{{vojprefikso}}../assets/img/stelo.png" alt="Verda stelo"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="{{vojprefikso}}"><img id="logo" src="{{vojprefikso}}../assets/img/stelo.png" alt="Verda stelo"></a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{enhavo.fasado['Lecionoj']}}
-                <span class="caret"></span>
               </a>
-              <ul class="dropdown-menu">
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 {% for leciono in enhavo.lecionoj %}
-                <li><a href="{{vojprefikso}}{{leciono.indekso.cxene}}">{{leciono.indekso.cifre}}. {{leciono.teksto.titolo_string}}</a></li>
+                <a class="dropdown-item" href="{{vojprefikso}}{{leciono.indekso.cxene}}">{{leciono.indekso.cifre}}. {{leciono.teksto.titolo_string}}</a>
                 {% endfor %}
-              </ul>
+              </div>
             </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{enhavo.fasado['Aldono']}}
-                <span class="caret"></span>
               </a>
-              <ul class="dropdown-menu">
-                <li><a href="{{vojprefikso}}tabelvortoj">
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{vojprefikso}}tabelvortoj">
                   {{enhavo.fasado['Tabelvortoj']}}
-                </a></li>
-                <li><a href="{{vojprefikso}}prepozicioj">
+                </a>
+                <a class="dropdown-item" href="{{vojprefikso}}prepozicioj">
                   {{enhavo.fasado['Prepozicioj']}}
-                </a></li>
-                <li><a href="{{vojprefikso}}konjunkcioj">
+                </a>
+                <a class="dropdown-item" href="{{vojprefikso}}konjunkcioj">
                   {{enhavo.fasado['Konjunkcioj']}}
-                </a></li>
-                <li><a href="{{vojprefikso}}afiksoj">
+                </a>
+                <a class="dropdown-item" href="{{vojprefikso}}afiksoj">
                   {{enhavo.fasado['Afiksoj']}}
-                </a></li>
-                <li><a href="{{vojprefikso}}diversajxoj">
+                </a>
+                <a class="dropdown-item" href="{{vojprefikso}}diversajxoj">
                   {{enhavo.fasado['Diversaĵoj']}}
-                </a></li>
-              </ul>
+                </a>
+              </div>
             </li>
           </ul>
 
-          <form class="navbar-form navbar-left">
+          <form class="form-inline my-2 my-lg-0">
             {% include 'vortaro.html' %}
           </form>
-          <form class="navbar-form navbar-left">
+          <form class="form-inline my-2 my-lg-0">
             <select id="lingvoelektilo" class="form-control">
               {% for kodo in enhavo.lingvoj|sort if enhavo.lingvoj[kodo].stato == 'preta' %}
                 <option value="{{kodo}}"
@@ -115,19 +105,18 @@
               {% endfor %}
             </select>
           </form>
-
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>   
+        </ul>
+      </div>
+    </nav>
 
     <div class="container">
       <div class="row">
 
         <div class="col-sm-12">
-          
+
           {% block content %}
           {% endblock %}
-        
+
         </div>
       </div>
 
@@ -135,9 +124,9 @@
 				<div>
 					<a href="https://github.com/Esperanto/kurso-zagreba-metodo#permesiloj">
 				    <img id="cc" src="{{vojprefikso}}../assets/img/cc.png" alt="Creative commons">
-					</a> 
-					
-					Surbaze de la <a href="https://eo.wikipedia.org/wiki/Zagreba_metodo">Zagreba metodo</a>, 
+					</a>
+
+					Surbaze de la <a href="https://eo.wikipedia.org/wiki/Zagreba_metodo">Zagreba metodo</a>,
 					<a href="{{vojprefikso}}auxtoroj/">Aŭtoroj</a>,
 					<a href="https://github.com/Esperanto/kurso-zagreba-metodo/tree/master/enhavo/tradukenda">Aldonu lingvon</a>,
 					<a href="https://jaehnig.org/#contact">Kontakto</a>
@@ -147,15 +136,18 @@
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script-->
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script-->
+    <script src="{{vojprefikso}}../assets/node_modules/jquery/dist/jquery.min.js" /></script>
+    <script src="{{vojprefikso}}../assets/node_modules/bootstrap/dist/js/bootstrap.min.js" /></script>
+    <script src="{{vojprefikso}}../assets/node_modules/mdbootstrap/js/mdb.min.js" /></script>
 
 <!--
     <script src="vendor/jquery/jquery.min.js"></script>
 -->
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <!-- 
+    <!-- script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script-->
+    <!--
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     -->
 
