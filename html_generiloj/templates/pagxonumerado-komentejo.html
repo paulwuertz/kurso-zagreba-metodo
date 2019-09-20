@@ -1,16 +1,8 @@
-<ul class="pager">
-  {% if previous_path -%}
-		<li class="previous"><a href="{{previous_path}}">{{enhavo.fasado['malantaŭen']}}</a></li>
-  {%- endif %} 
+{% include 'pager.html' %}
 
-	{% if enhavo.lingvoj[enhavo.lingvo].komentejo %} 
-		<li><a href="javascript:show_disqus();">{{enhavo.fasado['Komentejo']}}</a></li>
-  {%- endif %} 
-
-  {% if next_path -%}
-		<li class="next"><a href="{{next_path}}">{{enhavo.fasado['antaŭen']}}</a></li>
-  {%- endif %} 
-</ul>
+{% if enhavo.lingvoj[enhavo.lingvo].komentejo %} 
+	<div><a href="javascript:show_disqus();">{{enhavo.fasado['Komentejo']}}</a></div>
+{%- endif %} 
 
 
 {% if enhavo.lingvoj[enhavo.lingvo].komentejo %} 

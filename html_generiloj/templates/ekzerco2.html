@@ -9,9 +9,6 @@
 {% endblock %}
 
 {% block content %}
-
-  {% include 'pager.html' %}
-
   <h2 id="leciono{{leciono_index}}">
     {{leciono_index}}.
     {% for vorto in leciono.teksto.titolo %}
@@ -42,7 +39,7 @@
 			</div>
 		</div>
 	</div>
-	
+
   <p class="alert alert-info" role="alert" dir="{{enhavo.tekstodirekto}}">{{ enhavo.fasado['Por la Esperantaj literoj vi ankaŭ rajtas skribi cx, gx, hx, jx, sx kaj ux.'] }}</p>
 
   <form id="form-{{form_id}}" class="form-inline">
@@ -57,13 +54,15 @@
             {%- if klavo == 'videbla' -%}
               {%- if valoro -%}
                 {{valoro}}
-              {%- else %} {% endif -%} 
+              {%- else %} {% endif -%}
             {%- elif klavo == 'solvo' -%}
-              <div id="form-group-{{id}}" class="form-group has-error has-feedback">
+              <div id="form-group-{{id}}" class="form-group has-error has-feedback label-floating is-empty">
+                <label for="{{id}}" class="control-label">finajxo aux vorto?</label>
                 <input id="{{id}}" type="text" class="form-control" size="{{valoro|length}}" data-solvo="{{valoro}}" />
+								<span class="help-block">This is a hint as a <code>span.help-block.hint</code></span>
                 <span id="glyphicon-{{id}}" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
               </div>
-            {%- endif -%} 
+            {%- endif -%}
          {%- endfor -%}
         {%- endfor -%}
       </li>
