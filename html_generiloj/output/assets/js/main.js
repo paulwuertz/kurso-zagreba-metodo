@@ -1,10 +1,26 @@
 $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip(); 
-  $('[data-toggle="popover"]').popover({
+  
+  $.fn.popover.Constructor.Default.whiteList.table = [];
+  $.fn.popover.Constructor.Default.whiteList.tr = [];
+  $.fn.popover.Constructor.Default.whiteList.td = [];
+  $.fn.popover.Constructor.Default.whiteList.div = [];
+  $.fn.popover.Constructor.Default.whiteList.tbody = [];
+  $.fn.popover.Constructor.Default.whiteList.thead = [];
+
+  $("[data-toggle=popover]").popover({
     placement: 'bottom',
     trigger: 'hover',
-    html: true 
-  }); 
+    html: true,
+    content: function() {
+      var content = $(this).attr("data-popover-content");
+      return $(content).children(".popover-body").html();
+    },
+    title: function() {
+      var title = $(this).attr("data-popover-content");
+      return $(title).children(".popover-heading").html();
+    }
+  });
   $('.container table').addClass('table'); 
 });
 
