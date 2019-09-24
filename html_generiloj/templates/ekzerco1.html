@@ -8,6 +8,26 @@
   {{enhavo.fasado['Esperanto en 12 tagoj']}}
 {% endblock %}
 
+{% block styles %}    
+    <link href="{{vojprefikso}}../assets/css/input-material.css" rel="stylesheet">
+    <style type="text/css">
+      .form-group.input-material {
+          margin-top: 5px !important;
+          margin-bottom: 5px !important;
+      }
+      .taskborder {
+          border: 3px solid #aaa;
+          border-radius: 5px;
+          padding-top: 20px;
+          margin-bottom: 1em;
+      }
+      .input-material, .control-label {
+          padding-left: 20px;
+          padding-right: 20px;
+      }     
+    </style>
+{% endblock %}  
+
 {% block content %}
   <h2 id="leciono{{leciono_index}}">
     {{leciono_index}}.
@@ -41,31 +61,42 @@
 		</div>
 	</div>
 
-  <form id="form-{{form_id}}" class="form-horizontal">
-
+  <form id="form-{{form_id}}" class="form-horizontal taskborder">
+    <div class="row">
     {% for vico in leciono.ekzercoj[tasko] %}
-
+      <div class="col-md-6 col-sm12">
       {% set vico_loop = loop %}
       {% set id = 'vico-' ~ leciono_index ~ '-' ~ ekzerco_index ~ '-' ~ vico_loop.index %}
-      <div id="form-group-{{id}}" class="form-group has-error has-feedback">
+      <div id="form-group-{{id}}" class="row form-group has-error has-feedback">
         {% for esperante,fontlingve in vico.items() %}
-          <label class="control-label col-sm-2" for="{{id}}" data-toggle="popover" data-placement="bottom" title="{{fontlingve if fontlingve is string else fontlingve|join(', ')}}" >{{esperante}}:</label>
-          <div class="col-sm-10">
-            {%- if fontlingve is string -%}
-              <input id="{{id}}" class="form-control" type="text" size="{{fontlingve|string|length}}" data-solvo="{{fontlingve}}"/>
-            {%- elif fontlingve is iterable -%}
-              <input id="{{id}}" class="form-control" type="text" size="{{fontlingve[0]|string|length}}" data-solvo="{{fontlingve|join(' | ')}}"/>
-            {%- endif -%}
+          <label class="control-label col-sm-2" for="{{id}}" data-toggle="popover" data-placement="bottom" title="{{fontlingve if fontlingve is string else fontlingve|join(', ')}}" style="padding-top: 20px;">{{esperante}}:</label>
+          <div class="offset-sm-1 col-sm-9">
+            <span id="form-group-{{id}}" class="form-group input-material" style="display: inline-flex; width: 100%;">
+                <input id="{{id}}" class="form-control" type="text" size="{{fontlingve|string|length}}" data-solvo="{{ fontlingve if fontlingve is string else fontlingve|join(' | ') }}"/>
+            </span>
             <span id="glyphicon-{{id}}" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
           </div>
         {% endfor %}
       </div>
+      </div>
     {% endfor %}
-
-    <input type="button" class="btn btn-success solvu" value="{{enhavo.fasado['Solvu']}}" data-form-id="{{ form_id }}" />
-    <input type="button" class="btn btn-danger forigu" value="{{enhavo.fasado['Forigu']}}" data-form-id="{{ form_id }}" />
+    </div>
+      <div class="nav nav-fill w-100" style="border-top: 1px solid gray;">
+          <a type="button" class="nav-link" href="#" data-form-id="{{ form_id }}" style="border-right: 1px solid gray;" >{{ enhavo.fasado['Solvu'] }}</a>
+          <a type="button" class="nav-link" href="#" data-form-id="{{ form_id }}" style="border-right: 1px solid gray;" >{{ enhavo.fasado['Forigu'] }}</a>
+      </div>
   </form>
 
   {% include 'pagxonumerado-komentejo.html' %}
 
 {% endblock %}
+
+{% block scripts %}    
+    <script src="{{vojprefikso}}../assets/js/materialize-inputs.jquery.js"></script>
+    <script type="text/javascript">
+    $('document').ready(function(){
+        // enable material-style inputs in entire body
+        $('body').materializeInputs();
+    });
+    </script>
+{% endblock %}  

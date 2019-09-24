@@ -8,6 +8,26 @@
   {{enhavo.fasado['Esperanto en 12 tagoj']}}
 {% endblock %}
 
+{% block styles %}    
+    <link href="{{vojprefikso}}../assets/css/input-material.css" rel="stylesheet">
+    <style type="text/css">
+      .form-group.input-material {
+          margin-top: 5px !important;
+          margin-bottom: 5px !important;
+      }
+      .taskborder {
+          border: 3px solid #aaa;
+          border-radius: 5px;
+          padding-top: 20px;
+          margin-bottom: 1em;
+      }
+      .input-material {
+          padding-left: 20px;
+          padding-right: 20px;
+      }     
+    </style>
+{% endblock %}  
+
 {% block content %}
   <h2 id="leciono{{leciono_index}}">
     {{leciono_index}}.
@@ -41,7 +61,7 @@
 	</div>
 	
   <p class="alert alert-info" role="alert" dir="{{enhavo.tekstodirekto}}">{{ enhavo.fasado['Por la Esperantaj literoj vi ankaŭ rajtas skribi cx, gx, hx, jx, sx kaj ux.'] }}</p>
-
+  <div class="taskborder">
   <ol class="tasko">
     {% for vico in leciono.ekzercoj[tasko] %}
       {% set vico_loop = loop %}
@@ -57,14 +77,18 @@
           {% set id = leciono_index ~ '-' ~ ekzerco_index ~ '-' ~ vico_loop.index ~ '-' ~ duopo_loop.index %}
           {% if duopo is mapping %}
             {% for esperante, fontlingve in duopo.items() %}
-              <div id="form-group-{{id}}" class="form-group has-error has-feedback">
+              <span id="form-group-{{id}}" class="form-group input-material" style="display: inline-flex;">
+                    <label for="{{id}}" for="name-field" style="font-size: small;">{{fontlingve|join}}:</label>
+                    <input id="{{id}}" type="text" class="form-control" size="{{esperante|length}}" required>
+              </span>
+              <!--div id="form-group-{{id}}" class="form-group has-error has-feedback">
                 <label class="control-label col-sm-2" for="{{id}}" 
                   data-toggle="popover" data-placement="bottom" title="{{esperante}}">{{fontlingve|join}}:</label>
                 <div class="col-sm-10">
                   <input id="{{id}}" class="form-control" type="text" size="{{esperante|length}}" data-solvo="{{esperante}}"/>
                   <span id="glyphicon-{{id}}" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
                 </div>
-              </div>
+              </div-->
               {% endfor %}
             {%- else %} 
               <div class="form-group">
@@ -73,14 +97,26 @@
             {% endif -%} 
         {% endfor %}
 
-        <input type="button" class="btn btn-success solvu" value="{{enhavo.fasado['Solvu']}}" data-form-id="{{ form_id }}" />
-        <input type="button" class="btn btn-danger forigu" value="{{enhavo.fasado['Forigu']}}" data-form-id="{{ form_id }}" />
       </form>
 
     </li>
     {% endfor %}
   </ol>
-
+  <div class="nav nav-fill w-100" style="border-top: 1px solid gray;">
+      <a type="button" class="nav-link" href="#" data-form-id="{{ form_id }}" style="border-right: 1px solid gray;" >{{ enhavo.fasado['Solvu'] }}</a>
+      <a type="button" class="nav-link" href="#" data-form-id="{{ form_id }}" style="border-right: 1px solid gray;" >{{ enhavo.fasado['Forigu'] }}</a>
+  </div>
+  </div>
   {% include 'pagxonumerado-komentejo.html' %}
 
+{% endblock %}
+
+{% block scripts %}    
+    <script src="{{vojprefikso}}../assets/js/materialize-inputs.jquery.js"></script>
+    <script type="text/javascript">
+    $('document').ready(function(){
+        // enable material-style inputs in entire body
+        $('body').materializeInputs();
+    });
+    </script>
 {% endblock %}
