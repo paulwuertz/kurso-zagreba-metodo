@@ -8,7 +8,7 @@
   {{enhavo.fasado['Esperanto en 12 tagoj']}}
 {% endblock %}
 
-{% block styles %}    
+{% block styles %}
     <link href="{{vojprefikso}}../assets/css/input-material.css" rel="stylesheet">
     <style type="text/css">
       .form-group.input-material {
@@ -24,9 +24,9 @@
       .input-material {
           padding-left: 20px;
           padding-right: 20px;
-      }     
+      }
     </style>
-{% endblock %}  
+{% endblock %}
 
 {% block content %}
   <h2 id="leciono{{leciono_index}}">
@@ -41,7 +41,7 @@
   {% set tasko = 'Traduku kaj respondu' %}
   {% set ekzerco_index = 3 %}
   {% set form_id = leciono_index ~ '-' ~ ekzerco_index %}
-  
+
   <h3 dir="{{enhavo.tekstodirekto}}"> {{enhavo.fasado[tasko]}} / {{tasko}} </h3>
 
 	<div class="panel-group">
@@ -59,7 +59,7 @@
 			</div>
 		</div>
 	</div>
-	
+
   <p class="alert alert-info" role="alert" dir="{{enhavo.tekstodirekto}}">{{ enhavo.fasado['Por la Esperantaj literoj vi ankaŭ rajtas skribi cx, gx, hx, jx, sx kaj ux.'] }}</p>
   <div class="taskborder">
   <ol class="tasko">
@@ -82,7 +82,7 @@
                     <input id="{{id}}" type="text" class="form-control" size="{{esperante|length}}" required>
               </span>
               <!--div id="form-group-{{id}}" class="form-group has-error has-feedback">
-                <label class="control-label col-sm-2" for="{{id}}" 
+                <label class="control-label col-sm-2" for="{{id}}"
                   data-toggle="popover" data-placement="bottom" title="{{esperante}}">{{fontlingve|join}}:</label>
                 <div class="col-sm-10">
                   <input id="{{id}}" class="form-control" type="text" size="{{esperante|length}}" data-solvo="{{esperante}}"/>
@@ -90,11 +90,11 @@
                 </div>
               </div-->
               {% endfor %}
-            {%- else %} 
+            {%- else %}
               <div class="form-group">
                 <label class="control-label col-sm-2">{{duopo}}</label>
               </div>
-            {% endif -%} 
+            {% endif -%}
         {% endfor %}
 
       </form>
@@ -102,16 +102,20 @@
     </li>
     {% endfor %}
   </ol>
-  <div class="nav nav-fill w-100" style="border-top: 1px solid gray;">
-      <a type="button" class="nav-link" href="#" data-form-id="{{ form_id }}" style="border-right: 1px solid gray;" >{{ enhavo.fasado['Solvu'] }}</a>
-      <a type="button" class="nav-link" href="#" data-form-id="{{ form_id }}" style="border-right: 1px solid gray;" >{{ enhavo.fasado['Forigu'] }}</a>
-  </div>
+	<div class="nav nav-fill w-100" style="border-top: 1px solid gray;">
+			<a type="button" class="nav-link" href="#" data-form-id="{{ form_id }}" style="border-right: 1px solid gray;" ><img style="display: inline-block;
+font-size: inherit;
+height: 1em;vertical-align: -0.125em;margin-right: .5em;" src='data:image/svg+xml;charset=utf-8,<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="svg-inline--fa fa-eye fa-w-18"><path fill="currentColor" d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z" class=""></path></svg>' alt="">{{ enhavo.fasado['Solvu'] }}</a>
+			<a type="button" class="nav-link" href="#" data-form-id="{{ form_id }}" style="border-right: 1px solid gray;" ><img style="display: inline-block;
+font-size: inherit;
+height: 1em;vertical-align: -0.125em;margin-right: .5em;" src='data:image/svg+xml;charset=utf-8,<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="redo" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="svg-inline--fa fa-redo fa-w-16"><path fill="currentColor" d="M500.33 0h-47.41a12 12 0 0 0-12 12.57l4 82.76A247.42 247.42 0 0 0 256 8C119.34 8 7.9 119.53 8 256.19 8.1 393.07 119.1 504 256 504a247.1 247.1 0 0 0 166.18-63.91 12 12 0 0 0 .48-17.43l-34-34a12 12 0 0 0-16.38-.55A176 176 0 1 1 402.1 157.8l-101.53-4.87a12 12 0 0 0-12.57 12v47.41a12 12 0 0 0 12 12h200.33a12 12 0 0 0 12-12V12a12 12 0 0 0-12-12z" class=""></path></svg>' alt="">{{ enhavo.fasado['Forigu'] }}</a>
+	</div>
   </div>
   {% include 'pagxonumerado-komentejo.html' %}
 
 {% endblock %}
 
-{% block scripts %}    
+{% block scripts %}
     <script src="{{vojprefikso}}../assets/js/materialize-inputs.jquery.js"></script>
     <script type="text/javascript">
     $('document').ready(function(){
