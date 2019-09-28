@@ -73,8 +73,7 @@
               {%- else %} {% endif -%}
             {%- elif klavo == 'solvo' -%}
                 <span id="form-group-{{id}}" class="form-group input-material" style="display: inline-flex;">
-                    <label for="{{id}}" for="name-field">finajxo aŭ vorto?</label>
-                    <input id="{{id}}" type="text" class="form-control" required>
+                    <input id="{{id}}" type="text" class="form-control truvorto"  size="{{valoro|length}}" data-solvo="{{valoro}}" required>
                 </span>
             {%- endif -%}
          {%- endfor -%}

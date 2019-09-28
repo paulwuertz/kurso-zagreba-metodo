@@ -1,6 +1,6 @@
 $(document).ready(function(){
-  $('[data-toggle="tooltip"]').tooltip(); 
-  
+  $('[data-toggle="tooltip"]').tooltip();
+
   $.fn.popover.Constructor.Default.whiteList.table = [];
   $.fn.popover.Constructor.Default.whiteList.tr = [];
   $.fn.popover.Constructor.Default.whiteList.td = [];
@@ -21,11 +21,11 @@ $(document).ready(function(){
       return $(title).children(".popover-heading").html();
     }
   });
-  $('.container table').addClass('table'); 
+  $('.container table').addClass('table');
 });
 
 function esperantigu(s) {
-  
+
     s = s.replace('cx', 'ĉ')
     s = s.replace('gx', 'ĝ')
     s = s.replace('jx', 'ĵ')
@@ -78,8 +78,8 @@ $('input[data-solvo]').on('input', function() {
   var solutions = $(this).attr('data-solvo').split(/\s*\|\s*/);
   solutions = jQuery.map(solutions, normalize);
 
-	var correct = 
-	  // Input it part of solutions	
+	var correct =
+	  // Input it part of solutions
 		(jQuery.inArray(input, solutions) !== -1)
 	  ||
 		(input == normalize($(this).attr('data-solvo')));
@@ -88,10 +88,10 @@ $('input[data-solvo]').on('input', function() {
     form_group.removeClass('has-error').addClass('has-success');
     glyphicon.removeClass('glyphicon-remove').addClass('glyphicon-ok');
 		// Set focus on the current
-		// to not confuse it during the following step. 
+		// to not confuse it during the following step.
 		$(this).focus();
 		// Jump to the next input.
-		selectNextTabbableOrFocusable(':tabbable');
+		selectNextTabbableOrFocusable('.truvorto');
   } else {
 		console.log(input);
 		console.log($(this).attr('data-solvo'));
@@ -129,7 +129,7 @@ $('#lingvoelektilo').change(function(e) {
 
 	var url = window.location.href;
   url = url.replace(
-		'/' + currentLangCode + '/',  	
+		'/' + currentLangCode + '/',
 	  '/' + newLanguangeCode + '/'
 	);
 	window.location.href = url;

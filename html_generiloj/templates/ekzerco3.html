@@ -79,7 +79,7 @@
             {% for esperante, fontlingve in duopo.items() %}
               <span id="form-group-{{id}}" class="form-group input-material" style="display: inline-flex;">
                     <label for="{{id}}" for="name-field" style="font-size: small;">{{fontlingve|join}}:</label>
-                    <input id="{{id}}" type="text" class="form-control" size="{{esperante|length}}" required>
+                    <input id="{{id}}" type="text" class="form-control truvorto" size="{{esperante|length}}" data-solvo="{{esperante}}" required>
               </span>
               <!--div id="form-group-{{id}}" class="form-group has-error has-feedback">
                 <label class="control-label col-sm-2" for="{{id}}"
@@ -91,9 +91,9 @@
               </div-->
               {% endfor %}
             {%- else %}
-              <div class="form-group">
-                <label class="control-label col-sm-2">{{duopo}}</label>
-              </div>
+              <span >
+                {{duopo}}
+              </span>
             {% endif -%}
         {% endfor %}
 
