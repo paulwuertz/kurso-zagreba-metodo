@@ -85,7 +85,7 @@ $('input[data-solvo]').on('input', function() {
 		(input == normalize($(this).attr('data-solvo')));
 
   if (correct) {
-    form_group.removeClass('has-error').addClass('has-success');
+    form_group.removeClass('is-invalid').addClass('is-valid');
     glyphicon.removeClass('glyphicon-remove').addClass('glyphicon-ok');
 		// Set focus on the current
 		// to not confuse it during the following step.
@@ -95,7 +95,7 @@ $('input[data-solvo]').on('input', function() {
   } else {
 		console.log(input);
 		console.log($(this).attr('data-solvo'));
-    form_group.removeClass('has-success').addClass('has-error');
+    form_group.removeClass('is-valid').addClass('is-invalid');
     glyphicon.removeClass('glyphicon-ok').addClass('glyphicon-remove');
   }
 });
@@ -113,6 +113,7 @@ $('.solvu').click(function() {
 $('.forigu').click(function() {
   var form_id = $(this).attr('data-form-id');
   var inputs  = $('#form-' + form_id + ' input[data-solvo] ');
+  console.log("bbbbbbb")
   inputs.each(function() {
     $(this).val('');
     $(this).trigger('input');
