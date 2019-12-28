@@ -34,13 +34,13 @@ class LekcioVortoj extends Component {
           <em> {left} </em> – {right}
       </li>
     )
-}
+  }
 
   render = () =>
     <div dir="{{enhavo.tekstodirekto}}">
       <Tabs lekcio = "01" state = {this.enhavo} />
       <div id="eksporto">
-        <a class="btn btn-outline-dark" role="button" aria-pressed="true" href="eksporto/{{enhavo.lingvo}}.apkg"> Anki APKG</a>
+        <a className="btn btn-outline-dark" role="button" aria-pressed="true" href="eksporto/{{enhavo.lingvo}}.apkg"> Anki APKG</a>
     	</div>
 
       <h3>

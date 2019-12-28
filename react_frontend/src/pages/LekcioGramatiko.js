@@ -14,7 +14,7 @@ class LekcioGramatiko extends Component {
 
   render = () => <div dir={ this.enhavo.tekstodirekto }>
       <Tabs lekcio = "01" state = {this.enhavo} />
-      <div className="mt-3">
+      <div>
         <ReactMarkdown source={ this.enhavo["lecionoj"][parseInt(this.lekcio)]["gramatiko"]["teksto"] } />
 
         <LinkContainer to="/01">
