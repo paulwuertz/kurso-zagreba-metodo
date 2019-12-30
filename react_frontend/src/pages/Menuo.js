@@ -48,7 +48,7 @@ class Meno extends Component {
             <NavDropdown.Item href="/prepozicio">{this.enhavo.fasado['Prepozicioj']}</NavDropdown.Item>
             <NavDropdown.Item href="/konjunkcioj">{this.enhavo.fasado['Konjunkcioj']}</NavDropdown.Item>
             <NavDropdown.Item href="/afiksoj">{this.enhavo.fasado['Afiksoj']}</NavDropdown.Item>
-            <NavDropdown.Item href="/05">{this.enhavo.fasado['Diversaĵoj']}</NavDropdown.Item>
+            <NavDropdown.Item href="/diversajxoj">{this.enhavo.fasado['Diversaĵoj']}</NavDropdown.Item>
         </NavDropdown>
       </Nav>
       <Form inline>

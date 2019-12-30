@@ -13,6 +13,7 @@ import AldonoTabelvortoj from './pages/AldonoTabelvortoj';
 import AldonoPrepozicioj from './pages/AldonoPrepozicioj';
 import AldonoKonjunkcioj from './pages/AldonoKonjunkcioj';
 import AldonoAfiksoj from './pages/AldonoAfiksoj';
+import AldonoDiversajxoj from './pages/AldonoDiversajxoj';
 
 export default class App extends Component {
 
@@ -110,6 +111,7 @@ export default class App extends Component {
               <Route path="/prepozicio/"   render={ (routeProps) => <AldonoPrepozicioj state = {this.enhavo}/> }/>
               <Route path="/konjunkcioj/"   render={ (routeProps) => <AldonoKonjunkcioj state = {this.enhavo}/> }/>
               <Route path="/afiksoj/"   render={ (routeProps) => <AldonoAfiksoj state = {this.enhavo}/> }/>
+              <Route path="/diversajxoj/"   render={ (routeProps) => <AldonoDiversajxoj state = {this.enhavo}/> }/>
               Route path="/"   render={ (routeProps) => <Home state = {this.enhavo}/> }/>
             </Switch>
           </div>
