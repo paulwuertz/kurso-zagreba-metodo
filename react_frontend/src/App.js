@@ -10,6 +10,7 @@ import LekcioVortoj from './pages/LekcioVortoj';
 import Menuo from './pages/Menuo';
 
 import AldonoTabelvortoj from './pages/AldonoTabelvortoj';
+import AldonoPrepozicioj from './pages/AldonoPrepozicioj';
 
 export default class App extends Component {
 
@@ -104,6 +105,7 @@ export default class App extends Component {
               <Route path="/12/ekzerco3"  render={ (routeProps) => <LekcioTeksto lekcio = "12" state = {this.enhavo} />} />
               <Route path="/12" render={ (routeProps) => <LekcioTeksto lekcio = "12" state = {this.enhavo}/> } />
               <Route path="/tabelvortoj/"   render={ (routeProps) => <AldonoTabelvortoj state = {this.enhavo}/> }/>
+              <Route path="/prepozicio/"   render={ (routeProps) => <AldonoPrepozicioj state = {this.enhavo}/> }/>
               <Route path="/"   render={ (routeProps) => <Home state = {this.enhavo}/> }/>
             </Switch>
           </div>

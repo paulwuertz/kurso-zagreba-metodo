@@ -45,7 +45,7 @@ class Meno extends Component {
 
         <NavDropdown title={ this.enhavo.fasado['Aldono']} id="basic-nav-dropdown">
             <NavDropdown.Item href="/tabelvortoj">{this.enhavo.fasado['Tabelvortoj']}</NavDropdown.Item>
-            <NavDropdown.Item href="/02">{this.enhavo.fasado['Prepozicioj']}</NavDropdown.Item>
+            <NavDropdown.Item href="/prepozicio">{this.enhavo.fasado['Prepozicioj']}</NavDropdown.Item>
             <NavDropdown.Item href="/03">{this.enhavo.fasado['Konjunkcioj']}</NavDropdown.Item>
             <NavDropdown.Item href="/04">{this.enhavo.fasado['Afiksoj']}</NavDropdown.Item>
             <NavDropdown.Item href="/05">{this.enhavo.fasado['Diversaĵoj']}</NavDropdown.Item>
