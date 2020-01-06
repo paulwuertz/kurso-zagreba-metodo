@@ -1,5 +1,4 @@
 import React, { Component }  from 'react';
-import Tabs from './Tabs';
 
 class AldonoTabelvortoj extends Component {
 
@@ -52,7 +51,6 @@ class AldonoTabelvortoj extends Component {
   }
 
   render = () => <div dir={ this.enhavo.tekstodirekto }>
-      <Tabs lekcio = "01" state = {this.enhavo} />
       <div>
         { this.enhavo.fasado['Tabelvortoj']} | {this.enhavo.fasado['Esperanto en 12 tagoj']}
 

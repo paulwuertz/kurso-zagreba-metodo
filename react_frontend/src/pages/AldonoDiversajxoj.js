@@ -1,5 +1,4 @@
 import React, { Component }  from 'react';
-import Tabs from './Tabs';
 
 class AldonoDiversajxoj extends Component {
 
