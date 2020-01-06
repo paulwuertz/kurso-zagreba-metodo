@@ -4,6 +4,7 @@ class Auxtoroj extends Component {
 
   constructor(props){
     super(props);
+    this.enhavo = props.state
     this.lingvoj = props.lingvoj
     this.lingvo = props.lingvo
   }
@@ -20,9 +21,12 @@ class Auxtoroj extends Component {
         return <li>{auxtoro.nomo}</li>
   }
 
+  componentDidMount() {
+      document.title = 'Aŭtoroj' + " | " + this.enhavo.fasado['Esperanto en 12 tagoj']
+  }
+
   render = () =>
     <div>
-        Aŭtoroj | this.enhavo.fasado['Esperanto en 12 tagoj']
         <h2>Aŭtoroj</h2>
         <h3>Enhavo</h3>
         <p>La aŭtoroj de la <em><a href="https://eo.wikipedia.org/wiki/Zagreba_metodo">Zagreba metodo</a></em> estas:</p>

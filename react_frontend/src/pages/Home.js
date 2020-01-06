@@ -123,7 +123,7 @@ class Home extends Component{
   }
 
   componentDidMount() {
-      document.title = this.enhavo.fasado['Lerni Esperanton'] || this.enhavo.fasado['Esperanto en 12 tagoj']
+      document.title = this.enhavo.fasado['Lerni Esperanton'] + " | " + this.enhavo.fasado['Esperanto en 12 tagoj']
   }
 }
 

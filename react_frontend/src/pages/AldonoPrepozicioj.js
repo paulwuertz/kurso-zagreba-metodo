@@ -35,6 +35,10 @@ class AldonoPrepozicioj extends Component {
     )
   }
 
+  componentDidMount() {
+      document.title = this.enhavo.fasado['Prepozicioj'] + " | " + this.enhavo.fasado['Esperanto en 12 tagoj']
+  }
+
   render = () =>
     <div dir={this.enhavo.tekstodirekto}>
       <h3>

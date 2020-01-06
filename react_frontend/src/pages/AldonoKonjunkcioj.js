@@ -35,6 +35,10 @@ class AldonoKonjunkcioj extends Component {
     )
   }
 
+  componentDidMount() {
+      document.title = this.enhavo.fasado['Konjunkcioj'] + " | " + this.enhavo.fasado['Esperanto en 12 tagoj']
+  }
+
   render = () =>
     <div dir={this.enhavo.tekstodirekto}>
       <h3>

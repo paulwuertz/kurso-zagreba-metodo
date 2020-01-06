@@ -35,6 +35,10 @@ class AldonoAfiksoj extends Component {
     )
   }
 
+  componentDidMount() {
+      document.title = this.enhavo.fasado['Afiksoj'] + " | " + this.enhavo.fasado['Esperanto en 12 tagoj']
+  }
+
   render = () =>
     <div dir={this.enhavo.tekstodirekto}>
       <h2>

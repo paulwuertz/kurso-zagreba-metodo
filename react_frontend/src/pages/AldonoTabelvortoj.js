@@ -50,10 +50,12 @@ class AldonoTabelvortoj extends Component {
       )
   }
 
+  componentDidMount() {
+      document.title = this.enhavo.fasado['Tabelvortoj'] + " | " + this.enhavo.fasado['Esperanto en 12 tagoj']
+  }
+
   render = () => <div dir={ this.enhavo.tekstodirekto }>
       <div>
-        { this.enhavo.fasado['Tabelvortoj']} | {this.enhavo.fasado['Esperanto en 12 tagoj']}
-
         <h2>
         	{ this.enhavo.fasado['Tabelvortoj'] }
         </h2>
