@@ -12,6 +12,10 @@ class LekcioGramatiko extends Component {
     this.lekcio = props.lekcio
   }
 
+  componentDidMount() {
+    document.title = this.enhavo.fasado['Gramatiko'] + " | " + this.enhavo.fasado['Esperanto en 12 tagoj']  
+  }
+
   render = () => <div dir={ this.enhavo.tekstodirekto }>
       <Tabs lekcio = "01" state = {this.enhavo} />
       <div>

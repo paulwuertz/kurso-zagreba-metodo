@@ -17,7 +17,7 @@ export class Menuo extends Component {
 
   render = () => <Navbar expand="md" bg="dark">
   <Navbar.Brand href="/">
-    <img src="assets/img/stelo.png" width="30" height="30" className="d-inline-block align-top" alt="React Bootstrap logo"/>
+    <img src="/assets/img/stelo.png" width="30" height="30" className="d-inline-block align-top" alt="React Bootstrap logo"/>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
@@ -56,9 +56,6 @@ export class Menuo extends Component {
 }
 
 export class Footer extends Component {
-  constructor(props) {
-      super(props);
-  }
   render = () => <footer className="container">
     <hr className="featurette-divider" style={{marginBottom: 30 + "px"}}/>
     <div className="float-left" style={{marginBottom: 30 + "px"}}>
@@ -66,7 +63,7 @@ export class Footer extends Component {
           <img id="cc" src="assets/img/cc.png" alt="Creative commons"/>
       </a>
       Surbaze de la <a href="https://eo.wikipedia.org/wiki/Zagreba_metodo">Zagreba metodo</a>,
-      <LinkContainer to="/auxtoroj"><a>Aŭtoroj</a></LinkContainer>, 
+      <LinkContainer to="/auxtoroj"><a>Aŭtoroj</a></LinkContainer>,
       <a href="https://github.com/Esperanto/kurso-zagreba-metodo/tree/master/enhavo/tradukenda">Aldonu lingvon</a>,
       <a href="https://jaehnig.org/#contact">Kontakto</a>
     </div>
