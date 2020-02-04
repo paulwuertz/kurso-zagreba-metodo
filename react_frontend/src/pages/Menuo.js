@@ -38,11 +38,11 @@ export class Menuo extends Component {
         </NavDropdown>
 
         <NavDropdown title={ this.enhavo.fasado['Aldono']} id="basic-nav-dropdown">
-            <NavDropdown.Item href="/tabelvortoj">{this.enhavo.fasado['Tabelvortoj']}</NavDropdown.Item>
-            <NavDropdown.Item href="/prepozicio">{this.enhavo.fasado['Prepozicioj']}</NavDropdown.Item>
-            <NavDropdown.Item href="/konjunkcioj">{this.enhavo.fasado['Konjunkcioj']}</NavDropdown.Item>
-            <NavDropdown.Item href="/afiksoj">{this.enhavo.fasado['Afiksoj']}</NavDropdown.Item>
-            <NavDropdown.Item href="/diversajxoj">{this.enhavo.fasado['Diversaĵoj']}</NavDropdown.Item>
+            <LinkContainer to="/tabelvortoj"><NavDropdown.Item>{this.enhavo.fasado['Tabelvortoj']}</NavDropdown.Item></LinkContainer>
+            <LinkContainer to="/prepozicio"><NavDropdown.Item>{this.enhavo.fasado['Prepozicioj']}</NavDropdown.Item></LinkContainer>
+            <LinkContainer to="/konjunkcioj"><NavDropdown.Item>{this.enhavo.fasado['Konjunkcioj']}</NavDropdown.Item></LinkContainer>
+            <LinkContainer to="/afiksoj"><NavDropdown.Item>{this.enhavo.fasado['Afiksoj']}</NavDropdown.Item></LinkContainer>
+            <LinkContainer to="/diversajxoj"><NavDropdown.Item>{this.enhavo.fasado['Diversaĵoj']}</NavDropdown.Item></LinkContainer>
         </NavDropdown>
       </Nav>
       <Form inline>
