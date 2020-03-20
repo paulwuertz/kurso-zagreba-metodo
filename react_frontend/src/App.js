@@ -15,6 +15,7 @@ import AldonoKonjunkcioj from './pages/AldonoKonjunkcioj';
 import AldonoAfiksoj from './pages/AldonoAfiksoj';
 import AldonoDiversajxoj from './pages/AldonoDiversajxoj';
 import Duo from './pages/duo';
+import Post from './pages/Post';
 import Auxtoroj from './pages/Auxtoroj';
 
 export default class App extends Component {
@@ -139,6 +140,7 @@ export default class App extends Component {
                 <Route path="/diversajxoj/"   render={ (routeProps) => <AldonoDiversajxoj state = {this.enhavo}/> }/>
                 <Route path="/auxtoroj/"   render={ (routeProps) => <Auxtoroj lingvo = {this.lingvo} lingvoj = {this.lingvoj} state = {this.enhavo}/> }/>
                 <Route path="/duo/"   render={ (routeProps) => <Duo state = {this.enhavo} lingvo = {this.lingvo} lingvoj = {this.lingvoj}/> }/>
+                <Route path="/post/"   render={ (routeProps) => <Post state = {this.enhavo} lingvo = {this.lingvo} lingvoj = {this.lingvoj}/> }/>
                 <Route path="/"   render={ (routeProps) => <Home state = {this.enhavo}/> }/>
               </Switch>
             </div>
