@@ -1,7 +1,7 @@
 import React, { Component }  from 'react';
 import Button from 'react-bootstrap/Button';
 import { LinkContainer } from 'react-router-bootstrap'
-import Tabs from './Tabs';
+import Tabs from "./Tabs.js"
 const ReactMarkdown = require('react-markdown')
 
 class LekcioGramatiko extends Component {
@@ -13,11 +13,12 @@ class LekcioGramatiko extends Component {
   }
 
   componentDidMount() {
-    document.title = this.enhavo.fasado['Gramatiko'] + " | " + this.enhavo.fasado['Esperanto en 12 tagoj']  
+    document.title = this.enhavo.fasado['Gramatiko'] + " | " + this.enhavo.fasado['Esperanto en 12 tagoj']
   }
 
-  render = () => <div dir={ this.enhavo.tekstodirekto }>
-      <Tabs lekcio = "01" state = {this.enhavo} />
+  render = () =>
+    <div dir={ this.enhavo.tekstodirekto }>
+      <Tabs lekcio = "01" state = {this.enhavo} tab="gramatiko"/>
       <div>
         <ReactMarkdown source={ this.enhavo["lecionoj"][parseInt(this.lekcio)]["gramatiko"]["teksto"] } />
 

@@ -1,5 +1,5 @@
 import React, { Component }  from 'react';
-import Tabs from './Tabs';
+import Tabs from "./Tabs.js"
 
 class LekcioVortoj extends Component {
 
@@ -36,11 +36,15 @@ class LekcioVortoj extends Component {
     )
   }
 
+  componentDidMount() {
+      document.title = this.enhavo.fasado['Novaj vortoj'] + " | " + this.enhavo.fasado['Esperanto en 12 tagoj']
+  }
+
   render = () =>
-    <div dir="{{enhavo.tekstodirekto}}">
-      <Tabs lekcio = "01" state = {this.enhavo} />
+    <div dir={ this.enhavo.tekstodirekto }>
+      <Tabs lekcio = "01" state = {this.enhavo} tab="vortoj"/>
       <div id="eksporto">
-        <a className="btn btn-outline-dark" role="button" aria-pressed="true" href="eksporto/{{enhavo.lingvo}}.apkg"> Anki APKG</a>
+        <a className="btn btn-outline-dark" role="button" aria-pressed="true" href="eksporto/{this.enhavo.lingvo}.apkg"> Anki APKG</a>
     	</div>
 
       <h3>

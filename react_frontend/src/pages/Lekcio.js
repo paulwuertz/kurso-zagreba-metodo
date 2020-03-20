@@ -1,5 +1,7 @@
 import React, { Component }  from 'react';
-import Tabs from './Tabs';
+import { MediaPlayer } from '@cassette/player';
+import '@cassette/player/dist/css/cassette-player.css';
+import Tabs from "./Tabs.js"
 
 class LekcioTeksto extends Component {
 
@@ -67,52 +69,16 @@ class LekcioTeksto extends Component {
   }
 
   render = () =>
-  <div>
+  <div dir={ this.enhavo.tekstodirekto }>
+  <Tabs lekcio = "01" state = {this.enhavo} tab="home"/>
     <h2 id={"leciono" + this.lekcio}>
       {this.lekcio}. {this.paragrafo(this.enhavo.lecionoj[parseInt(this.lekcio)-1].teksto.titolo)}
     </h2>
 
-    <Tabs lekcio = "01" state = {this.enhavo} />
-
     <p className="alert alert-info" role="alert" dir={this.enhavo.tekstodirekto}> {this.enhavo.fasado['Alklaku la vortojn por vidi ilian tradukon.']} </p>
 
     <div className="container" style={{marginBottom: 1 + "em",}}>
-    <div className="row">
-      <div id="jquery_jplayer_1" className="col-sm-auto jp-jplayer"></div>
-      <div id="jp_container_1" className="col-sm-auto jp-audio" role="application" aria-label="media player">
-        <div className="jp-type-single">
-          <div className="jp-gui jp-interface">
-            <div className="jp-controls">
-              <button className="jp-play" tabIndex="0">play</button>
-              <button className="jp-stop" tabIndex="0">stop</button>
-            </div>
-            <div className="jp-progress">
-              <div className="jp-seek-bar">
-                <div className="jp-play-bar"></div>
-              </div>
-            </div>
-            <div className="jp-volume-controls">
-              <button className="jp-mute" tabIndex="0">mute</button>
-              <button className="jp-volume-max" tabIndex="0">max volume</button>
-              <div className="jp-volume-bar">
-                <div className="jp-volume-bar-value"></div>
-              </div>
-            </div>
-            <div className="jp-time-holder">
-              <div className="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
-              <div className="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
-              <div className="jp-toggles">
-                <button className="jp-repeat" tabIndex="0">repeat</button>
-              </div>
-            </div>
-          </div>
-          <div className="jp-no-solution">
-            <span>Update Required</span>
-            To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" rel="noopener noreferrer" target="_blank">Flash plugin</a>.
-          </div>
-        </div>
-      </div>
-    </div>
+        <MediaPlayer playlist={[{url:"/assets/ogg/"+this.lekcio+".ogg"}]}y/>
     </div>
 
     <div style={{borderLeft: 0.2 + "em solid #4d91b3", paddingLeft: 1 + "em", marginBottom: 1 + "em",}}>

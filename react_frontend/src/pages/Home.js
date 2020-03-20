@@ -2,7 +2,6 @@ import React, { Component }  from 'react';
 import {Popover, OverlayTrigger, Tooltip, Button} from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap'
 import {updateCourseProgess, isCourseStarted, getCourseProgess } from './Progreso'
-import "./progress_circle.css"
 const ReactMarkdown = require('react-markdown')
 
 class Home extends Component{

@@ -41,6 +41,11 @@ a.nav-link {
     color: #9d9d9d !important;
 }
 
-a.nav-link:hover {
-    color: #ffffff !important;
+a.nav-link:hover, a.nav-link:focus {
+    border-color: #eee #eee #ddd;
+    background-color: #eee;
+}
+
+.nav-link.active {
+  font-weight:bolder;
 }
