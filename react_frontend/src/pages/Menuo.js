@@ -56,16 +56,23 @@ export class Menuo extends Component {
 }
 
 export class Footer extends Component {
-  render = () => <footer className="container">
-    <hr className="featurette-divider" style={{marginBottom: 30 + "px"}}/>
-    <div className="float-left" style={{marginBottom: 30 + "px"}}>
-      <a href="https://github.com/Esperanto/kurso-zagreba-metodo#permesiloj">
-          <img id="cc" src="assets/img/cc.png" alt="Creative commons"/>
-      </a>
-      Surbaze de la <a href="https://eo.wikipedia.org/wiki/Zagreba_metodo">Zagreba metodo</a>,
-      <LinkContainer to="/auxtoroj"><a>Aŭtoroj</a></LinkContainer>,
-      <a href="https://github.com/Esperanto/kurso-zagreba-metodo/tree/master/enhavo/tradukenda">Aldonu lingvon</a>,
-      <a href="https://jaehnig.org/#contact">Kontakto</a>
+  render = () =>
+  <footer className="container" style={{marginTop: 30 + "px"}}>
+    <div class="card">
+      <div className="card-body card-header">
+      <div className="float-left">
+        <a href="https://github.com/Esperanto/kurso-zagreba-metodo#permesiloj" style={{marginRight: 20 + "px"}}>
+            <img id="cc" src="assets/img/cc.png" alt="Creative commons"/>
+        </a>
+        Surbaze de la <a href="https://eo.wikipedia.org/wiki/Zagreba_metodo">Zagreba metodo</a>
+        <span>, </span>
+        <LinkContainer to="/auxtoroj"><a>Aŭtoroj</a></LinkContainer>
+        <span>, </span>
+        <a href="https://github.com/Esperanto/kurso-zagreba-metodo/tree/master/enhavo/tradukenda">Aldonu lingvon</a>
+        <span>, </span>
+        <a href="https://jaehnig.org/#contact">Kontakto</a>
+      </div>
+      </div>
     </div>
   </footer>
 }
