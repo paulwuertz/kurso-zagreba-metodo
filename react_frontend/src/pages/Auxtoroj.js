@@ -22,7 +22,7 @@ class Auxtoroj extends Component {
   }
 
   componentDidMount() {
-      document.title = 'Aŭtoroj' + " | " + this.enhavo.fasado['Esperanto en 12 tagoj']
+      document.title = "Aŭtoroj | " + this.enhavo.fasado['Esperanto en 12 tagoj']
   }
 
   render = () =>

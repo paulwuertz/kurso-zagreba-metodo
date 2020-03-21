@@ -1,6 +1,4 @@
 import React, { Component }  from 'react';
-import Button from 'react-bootstrap/Button';
-import { LinkContainer } from 'react-router-bootstrap'
 const ReactMarkdown = require('react-markdown')
 
 class Post extends Component {

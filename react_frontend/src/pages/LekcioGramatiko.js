@@ -1,6 +1,5 @@
 import React, { Component }  from 'react';
 import Button from 'react-bootstrap/Button';
-import { LinkContainer } from 'react-router-bootstrap'
 import Tabs from "./Tabs.js"
 const ReactMarkdown = require('react-markdown')
 
@@ -19,16 +18,13 @@ class LekcioGramatiko extends Component {
   render = () =>
     <div dir={ this.enhavo.tekstodirekto }>
       <Tabs lekcio = "01" state = {this.enhavo} tab="gramatiko"/>
-      <div>
-        <ReactMarkdown source={ this.enhavo["lecionoj"][parseInt(this.lekcio)]["gramatiko"]["teksto"] } />
-
-        <LinkContainer to="/01">
-        <Button>{ this.enhavo.fasado['Ek'] }</Button>
-        </LinkContainer>
-
-        <LinkContainer to="/01">
-        <Button>{ this.enhavo.fasado['Ek'] }</Button>
-        </LinkContainer>
+      <div className="container pt-3 pb-3 mb-2" style={{ borderLeft: "1px solid #dee2e6", borderRight: "1px solid #dee2e6", borderBottom: "1px solid #dee2e6", borderBottomLeftRadius: ".25rem", borderBottomRightRadius: ".25rem" }}>
+          <ReactMarkdown source={ this.enhavo["lecionoj"][parseInt(this.lekcio)]["gramatiko"]["teksto"] } />
+          <div className="row text-center">
+              <div className="col-4"><Button className="float-left" variant="info">{this.enhavo.fasado['malantaŭen']}</Button></div>
+              <div className="col-4 text-center"><Button variant="outline-secondary">{this.enhavo.fasado['Komentejo']}</Button></div>
+              <div className="col-4"><Button className="float-right" variant="info">{this.enhavo.fasado['antaŭen']}</Button></div>
+          </div>
       </div>
     </div>
 }

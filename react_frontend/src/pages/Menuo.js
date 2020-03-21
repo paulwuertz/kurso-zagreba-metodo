@@ -12,7 +12,7 @@ export class Menuo extends Component {
 
   langOptions = () =>
     Object.entries(this.lingvoj).map(kodo_obj =>
-      <option value={kodo_obj[0]}>{this.lingvoj[kodo_obj[0]].nomo.fontlingve}</option>
+      <option key={kodo_obj[0]} value={kodo_obj[0]}>{this.lingvoj[kodo_obj[0]].nomo.fontlingve}</option>
     )
 
   render = () => <Navbar expand="md" bg="dark">
@@ -57,8 +57,8 @@ export class Menuo extends Component {
 
 export class Footer extends Component {
   render = () =>
-  <footer className="container" style={{marginTop: 30 + "px"}}>
-    <div class="card">
+  <footer className="container">
+    <div className="card">
       <div className="card-body card-header">
       <div className="float-left">
         <a href="https://github.com/Esperanto/kurso-zagreba-metodo#permesiloj" style={{marginRight: 20 + "px"}}>

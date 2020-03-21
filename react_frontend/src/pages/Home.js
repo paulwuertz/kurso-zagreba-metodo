@@ -1,5 +1,5 @@
 import React, { Component }  from 'react';
-import {Popover, OverlayTrigger, Tooltip, Button} from 'react-bootstrap';
+import {Popover, OverlayTrigger, Button} from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap'
 import {updateCourseProgess, isCourseStarted, getCourseProgess } from './Progreso'
 const ReactMarkdown = require('react-markdown')
