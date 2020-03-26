@@ -33,7 +33,7 @@ export default class App extends Component {
   }
 
   langUpdate = function(event) {
-      let lang = event.currentTarget.id;
+      let lang = event.currentTarget.id || event.target.value;
       var xhttp = new XMLHttpRequest();
       var app = this;
       xhttp.onreadystatechange = function() {
@@ -45,10 +45,32 @@ export default class App extends Component {
              })
              localStorage.setItem("lang", lang)
              localStorage.setItem(lang, xhttp.responseText)
+             window.location.reload(true)
           }
       };
       xhttp.open("GET", "/data/data_"+ lang +".json", true);
       xhttp.send();
+  }
+
+  langForm = function() {
+      return (
+        <div className="container-md">
+          <div className="row mt-3">
+            <div className="col-sm-12 text-left">
+              <div class="jumbotron">
+                <h1>Learn Esperanto</h1>
+                <div>
+                  {(Object.entries(this.lingvoj).map(kodo_obj =>
+                    <span key={kodo_obj[0]} onClick={this.langUpdate} class="btn btn-light lelekto" id={kodo_obj[0]} title={kodo_obj[0]}>
+                        {this.lingvoj[kodo_obj[0]].nomo.fontlingve}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
   }
 
   render  = function(){
@@ -61,44 +83,7 @@ export default class App extends Component {
                 <img src="/assets/img/stelo.png" width="30" height="30" className="d-inline-block align-top" alt="React Bootstrap logo"/>
               </Navbar.Brand>
             </Navbar>
-            <div className="container-md">
-              <div className="row mt-3">
-                <div className="col-sm-12 text-left">
-                  <div class="jumbotron">
-                    <h1>Learn Esperanto</h1>
-                    <div>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="ca" title="kataluna">Català</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="cs" title="ĉeĥa">Čeština</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="de" title="germana">Deutsch</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="da" title="dana">Dansk</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="en" title="angla">English</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="es" title="hispana">Español</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="fa" title="persa">فارسی</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="fr" title="franca">Français</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="he" title="hebrea">עברית</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="hr" title="kroata">Hrvatski</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="hu" title="hungara">Magyar</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="id" title="indonezia">Bahasa Indonesia</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="it" title="itala">Italiano</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="ko" title="korea">한국어</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="ms" title="malaja">Bahasa Melayu</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="nl" title="nederlanda">Nederlands</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="pl" title="pola">Polski</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="pt" title="portugala">Português</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="ru" title="rusa">Русский</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="sk" title="slovaka">Slovenčina</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="sl" title="slovena">Slovenščina</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="sv" title="sveda">Svenska</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="th" title="taja">ภาษาไทย</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="tr" title="turka">Türkçe</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="uk" title="ukraina">Українська</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="zh" title="ĉina">中文</span>
-                      <span onClick={this.langHandler} class="btn btn-light lelekto" id="zh-tw" title="tradicia ĉina">正體中文</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {this.langForm}
           </div>
           <footer className="container">
             <div className="card">
@@ -123,7 +108,7 @@ export default class App extends Component {
       <div className="App">
         <Router basename="">
         <div>
-        <Menuo enhavo = {this.state.enhavo} lingvoj = {this.lingvoj}/>
+        <Menuo enhavo={this.state.enhavo} langForm={this.langForm} lingvoj={this.lingvoj} langUpdate={this.langHandler} />
         <div className="container-md">
           <div className="row mt-3">
             <div className="col-sm-12 text-left">
@@ -232,7 +217,7 @@ export default class App extends Component {
                   <Route path="/auxtoroj/" render={ (routeProps) =>    <Auxtoroj langUpdate={this.langHandler} lingvo = {this.state.lingvo} lingvoj = {this.lingvoj} state = {this.state.enhavo}/> }/>
                   <Route path="/duo/"   render={ (routeProps) => <Duo state = {this.state.enhavo} lingvo = {this.state.lingvo} lingvoj = {this.lingvoj}/> }/>
                   <Route path="/post/"   render={ (routeProps) => <Post state = {this.state.enhavo} /> }/>
-                  <Route path="/"   render={ (routeProps) => <Home state = {this.state.enhavo} langUpdate={this.langHandler} /> }/>
+                  <Route path="/"   render={ (routeProps) => <Home state = {this.state.enhavo} /> }/>
                 </Switch>
               </div>
           </div>

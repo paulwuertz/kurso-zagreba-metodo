@@ -15,32 +15,32 @@ class Tabs extends Component {
     <Nav fill variant="tabs" className="nav-justified" defaultActiveKey={this.tab} activeKey={this.tab}>
       <Nav.Item>
       <LinkContainer to={"/" + this.lekcio + "/teksto" }>
-      <Nav.Link eventKey="home">{ this.enhavo['fasado']['Teksto'] }</Nav.Link>
+          <Nav.Link className="text-nowrap" eventKey="home">{ this.enhavo['fasado']['Teksto'] }</Nav.Link>
       </LinkContainer>
       </Nav.Item>
       <Nav.Item>
       <LinkContainer to={"/" + this.lekcio + "/vortoj" }>
-          <Nav.Link eventKey="vortoj">{ this.enhavo['fasado']['Novaj vortoj'] }</Nav.Link>
+          <Nav.Link className="text-nowrap" eventKey="vortoj">{ this.enhavo['fasado']['Novaj vortoj'] }</Nav.Link>
       </LinkContainer>
       </Nav.Item>
       <Nav.Item>
       <LinkContainer to={"/" + this.lekcio + "/gramatiko"}>
-          <Nav.Link eventKey="gramatiko">{ this.enhavo['fasado']['Gramatiko'] }</Nav.Link>
+          <Nav.Link className="text-nowrap" eventKey="gramatiko">{ this.enhavo['fasado']['Gramatiko'] }</Nav.Link>
       </LinkContainer>
       </Nav.Item>
       <Nav.Item>
       <LinkContainer to={"/" + this.lekcio + "/vortoj2" }>
-          <Nav.Link eventKey="vortoj2">{ this.enhavo['fasado']['Novaj vortoj'] + " 2"}</Nav.Link>
+          <Nav.Link className="text-nowrap" eventKey="vortoj2">{ this.enhavo['fasado']['Novaj vortoj'] + " 2"}</Nav.Link>
       </LinkContainer>
       </Nav.Item>
       <Nav.Item>
       <LinkContainer to={"/" + this.lekcio + "/ekzercoj"}>
-          <Nav.Link eventKey="ekzercoj">{ this.enhavo['fasado']['Ekzerco 1'] }</Nav.Link>
+          <Nav.Link className="text-nowrap" eventKey="ekzercoj">{ this.enhavo['fasado']['Ekzerco 1'] }</Nav.Link>
       </LinkContainer>
       </Nav.Item>
       <Nav.Item>
       <LinkContainer to={"/" + this.lekcio + "/ekzercoj2"}>
-          <Nav.Link eventKey="ekzercoj2">{ this.enhavo['fasado']['Ekzerco 2'] }</Nav.Link>
+          <Nav.Link className="text-nowrap" eventKey="ekzercoj2">{ this.enhavo['fasado']['Ekzerco 2'] }</Nav.Link>
       </LinkContainer>
       </Nav.Item>
     </Nav>
