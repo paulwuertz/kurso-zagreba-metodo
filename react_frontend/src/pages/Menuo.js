@@ -8,6 +8,7 @@ export class Menuo extends Component {
     super(props);
     this.enhavo = props.enhavo
     this.lingvoj = props.lingvoj
+    this.langUpdate = props.langUpdate
   }
 
   langOptions = () =>
@@ -47,7 +48,7 @@ export class Menuo extends Component {
       </Nav>
       <Form inline>
         <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-        <Form.Control as="select">
+        <Form.Control onChange={this.langUpdate} as="select">
           { this.langOptions() }
         </Form.Control>
       </Form>
